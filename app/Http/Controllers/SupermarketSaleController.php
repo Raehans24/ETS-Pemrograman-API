@@ -12,7 +12,7 @@ class SupermarketSaleController extends Controller
         if ($request->getPort() != 3111) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Akses ditolak! Endpoint ini hanya dapat diakses melalui port 3111',
+                'message' => 'Akses ditolak!',
                 'current_port' => $request->getPort()
             ], 403);
         }
