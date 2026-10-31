@@ -31,7 +31,7 @@ class JwtMiddleware
             $decoded = JWT::decode($token, new Key($secretKey, 'HS256'));
 
             // Simpan Payload ke request kalau perlu data user/client di controller
-            $request->merge(['jwt_payload'=> $decoded]);
+            $request->merge(['jwt_payload'=> (array) $decoded]);
         } catch (\Exception $e) {
             return response ()->json([
                 'status' => 'error',
@@ -39,5 +39,5 @@ class JwtMiddleware
             ], 401);
         }
         return $next($request);
-    }
+    
 }
