@@ -39,5 +39,5 @@ class JwtMiddleware
             ], 401);
         }
         return $next($request);
-    
+    }
 }
